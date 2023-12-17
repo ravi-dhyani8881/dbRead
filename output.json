@@ -1,0 +1,390 @@
+{
+  "tables": [
+    {
+      "name": "Product",
+      "columns": [
+        "`id` int PRIMARY KEY",
+        "`name` string",
+        "`descrption` string",
+        "`merchant_id` int",
+        "`country_code` int",
+        "`added_date` datetime",
+        "`updated_date` datetime"
+      ]
+    },
+    {
+      "name": "Reviews",
+      "columns": [
+        "`id` int PRIMARY KEY",
+        "`product_id` int",
+        "`Description` string",
+        "`ratting` int",
+        "`userId` int",
+        "`added_date` datetime"
+      ]
+    },
+    {
+      "name": "Like",
+      "columns": [
+        "`id` int PRIMARY KEY",
+        "`review_id` int",
+        "`userId` int",
+        "`added_date` datetime",
+        "`updated_date` datetime"
+      ]
+    },
+    {
+      "name": "Dislike",
+      "columns": [
+        "`id` int PRIMARY KEY",
+        "`review_id` int",
+        "`userId` int",
+        "`added_date` datetime",
+        "`updated_date` datetime"
+      ]
+    },
+    {
+      "name": "Helpfull",
+      "columns": [
+        "`id` int PRIMARY KEY",
+        "`review_id` int",
+        "`userId` int",
+        "`added_date` datetime",
+        "`updated_date` datetime"
+      ]
+    },
+    {
+      "name": "Reply",
+      "columns": [
+        "`id` int PRIMARY KEY",
+        "`review_id` int",
+        "`userId` int",
+        "`added_date` datetime"
+      ]
+    },
+    {
+      "name": "ReplyOnReply",
+      "columns": [
+        "`id` int PRIMARY KEY",
+        "`replyId` int",
+        "`userId` int",
+        "`added_date` datetime"
+      ]
+    },
+    {
+      "name": "User",
+      "columns": [
+        "`id` int PRIMARY KEY",
+        "`name` string",
+        "`last_name` string",
+        "`age` int",
+        "`added_date` datetime",
+        "`updated_date` datetime"
+      ]
+    },
+    {
+      "name": "settings",
+      "columns": [
+        "`usertype` text",
+        "`userid` text",
+        "`settings` jsonb",
+        "PRIMARY KEY (`usertype`",
+        "`userid`)"
+      ]
+    },
+    {
+      "name": "auditlog",
+      "columns": [
+        "`entitytype` text",
+        "`entityid` text",
+        "`metadata` jsonb",
+        "PRIMARY KEY (`entitytype`",
+        "`entityid`)"
+      ]
+    },
+    {
+      "name": "events",
+      "columns": [
+        "`entitytype` text",
+        "`entityid` text",
+        "`created` timestamptz",
+        "`isopencontribution` boolean",
+        "`isowncontribution` boolean",
+        "`usercorporateid` text",
+        "`action` text",
+        "`userusername` text",
+        "`userid` text",
+        "`usercorporateusername` text",
+        "`organizationname` text",
+        "`organizationid` text",
+        "`repositoryname` text",
+        "`repositoryid` text",
+        "`inserted` timestamptz",
+        "`updated` timestamptz",
+        "`checked` timestamptz",
+        "`metadata` jsonb",
+        "PRIMARY KEY (`entitytype`",
+        "`entityid`)"
+      ]
+    },
+    {
+      "name": "approvals",
+      "columns": [
+        "`entitytype` text",
+        "`entityid` text",
+        "`metadata` jsonb",
+        "PRIMARY KEY (`entitytype`",
+        "`entityid`)"
+      ]
+    },
+    {
+      "name": "repositorymetadata",
+      "columns": [
+        "`entitytype` text",
+        "`entityid` text",
+        "`metadata` jsonb",
+        "PRIMARY KEY (`entitytype`",
+        "`entityid`)"
+      ]
+    },
+    {
+      "name": "repositorycache",
+      "columns": [
+        "`entitytype` text",
+        "`entityid` text",
+        "`metadata` jsonb",
+        "PRIMARY KEY (`entitytype`",
+        "`entityid`)"
+      ]
+    },
+    {
+      "name": "organizationsettings",
+      "columns": [
+        "`entitytype` text",
+        "`entityid` text",
+        "`metadata` jsonb",
+        "PRIMARY KEY (`entitytype`",
+        "`entityid`)"
+      ]
+    },
+    {
+      "name": "organizationannotations",
+      "columns": [
+        "`entitytype` text",
+        "`entityid` text",
+        "`metadata` jsonb",
+        "PRIMARY KEY (`entitytype`",
+        "`entityid`)"
+      ]
+    },
+    {
+      "name": "usersettings",
+      "columns": [
+        "`entitytype` text",
+        "`entityid` text",
+        "`contributionshareoptin` boolean",
+        "`metadata` jsonb",
+        "PRIMARY KEY (`entitytype`",
+        "`entityid`)"
+      ]
+    },
+    {
+      "name": "repositorycollaboratorcache",
+      "columns": [
+        "`entitytype` text",
+        "`entityid` text",
+        "`metadata` jsonb",
+        "PRIMARY KEY (`entitytype`",
+        "`entityid`)"
+      ]
+    },
+    {
+      "name": "organizationmembercache",
+      "columns": [
+        "`entitytype` text",
+        "`entityid` text",
+        "`metadata` jsonb",
+        "PRIMARY KEY (`entitytype`",
+        "`entityid`)"
+      ]
+    },
+    {
+      "name": "teamcache",
+      "columns": [
+        "`entitytype` text",
+        "`entityid` text",
+        "`metadata` jsonb",
+        "PRIMARY KEY (`entitytype`",
+        "`entityid`)"
+      ]
+    },
+    {
+      "name": "teammembercache",
+      "columns": [
+        "`entitytype` text",
+        "`entityid` text",
+        "`metadata` jsonb",
+        "PRIMARY KEY (`entitytype`",
+        "`entityid`)"
+      ]
+    },
+    {
+      "name": "repositoryteamcache",
+      "columns": [
+        "`entitytype` text",
+        "`entityid` text",
+        "`metadata` jsonb",
+        "PRIMARY KEY (`entitytype`",
+        "`entityid`)"
+      ]
+    },
+    {
+      "name": "links",
+      "columns": [
+        "`linkid` text",
+        "`thirdpartytype` text NOT NULL",
+        "`thirdpartyid` text NOT NULL",
+        "`thirdpartyusername` text",
+        "`thirdpartyavatar` text",
+        "`corporateid` text",
+        "`corporateusername` text",
+        "`corporatename` text",
+        "`corporatemail` text",
+        "`corporatealias` text",
+        "`serviceaccount` boolean DEFAULT false",
+        "`serviceaccountmail` text",
+        "PRIMARY KEY (`thirdpartytype`",
+        "`thirdpartyid`)"
+      ]
+    },
+    {
+      "name": "voting",
+      "columns": [
+        "`entitytype` text",
+        "`entityid` text",
+        "`metadata` jsonb",
+        "PRIMARY KEY (`entitytype`",
+        "`entityid`)"
+      ]
+    },
+    {
+      "name": "repositories",
+      "columns": [
+        "`entitytype` text",
+        "`entityid` text",
+        "`metadata` jsonb",
+        "`repositoryid` bigint",
+        "`organizationid` bigint",
+        "`cached` timestamptz",
+        "`name` text",
+        "`organizationlogin` text",
+        "`fullname` text",
+        "`private` boolean",
+        "`visibility` text",
+        "`fork` boolean",
+        "`archived` boolean",
+        "`disabled` boolean",
+        "`pushedat` timestamptz",
+        "`createdat` timestamptz",
+        "`updatedat` timestamptz",
+        "`description` text",
+        "`homepage` text",
+        "`language` text",
+        "`forkscount` integer",
+        "`stargazerscount` integer",
+        "`watcherscount` integer",
+        "`size` bigint",
+        "`defaultbranch` text",
+        "`openissuescount` integer",
+        "`hasissues` boolean",
+        "`hasprojects` boolean",
+        "`haswiki` boolean",
+        "`haspages` boolean",
+        "`hasdownloads` boolean",
+        "`subscriberscount` integer",
+        "`networkcount` integer",
+        "`license` text",
+        "`parentid` bigint",
+        "`parentname` text",
+        "`parentorganizationname` text",
+        "`parentorganizationid` bigint",
+        "PRIMARY KEY (`entitytype`",
+        "`entityid`)"
+      ]
+    }
+  ],
+  "foreign_keys": [
+    {
+      "table_name": "Product",
+      "column_name": "id",
+      "reference_table": "Reviews",
+      "reference_column": "product_id"
+    },
+    {
+      "table_name": "Reviews",
+      "column_name": "id",
+      "reference_table": "Like",
+      "reference_column": "review_id"
+    },
+    {
+      "table_name": "Reviews",
+      "column_name": "id",
+      "reference_table": "Dislike",
+      "reference_column": "review_id"
+    },
+    {
+      "table_name": "Reviews",
+      "column_name": "id",
+      "reference_table": "Helpfull",
+      "reference_column": "review_id"
+    },
+    {
+      "table_name": "Reviews",
+      "column_name": "id",
+      "reference_table": "Reply",
+      "reference_column": "review_id"
+    },
+    {
+      "table_name": "Reply",
+      "column_name": "id",
+      "reference_table": "ReplyOnReply",
+      "reference_column": "replyId"
+    },
+    {
+      "table_name": "User",
+      "column_name": "id",
+      "reference_table": "Reviews",
+      "reference_column": "userId"
+    },
+    {
+      "table_name": "User",
+      "column_name": "id",
+      "reference_table": "Like",
+      "reference_column": "userId"
+    },
+    {
+      "table_name": "User",
+      "column_name": "id",
+      "reference_table": "Dislike",
+      "reference_column": "userId"
+    },
+    {
+      "table_name": "User",
+      "column_name": "id",
+      "reference_table": "Helpfull",
+      "reference_column": "userId"
+    },
+    {
+      "table_name": "User",
+      "column_name": "id",
+      "reference_table": "Reply",
+      "reference_column": "userId"
+    },
+    {
+      "table_name": "User",
+      "column_name": "id",
+      "reference_table": "ReplyOnReply",
+      "reference_column": "userId"
+    }
+  ]
+}
